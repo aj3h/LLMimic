@@ -38,27 +38,30 @@ class ChatInstance:
 
     current_datetime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
-    chat_dir=os.path.abspath(os.path.join(os.path.dirname(__file__), "chat_logs"))
+    chat_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "chat_logs"))
+    # Create 'chat_logs' directory if it doesn't exist
+    os.makedirs(chat_dir, exist_ok=True)
+
     chat_filename = os.path.abspath(os.path.join(chat_dir, f"chat_{current_datetime}.json"))
     self.chat_json_path = chat_filename
 
     chat_data = {
-      "session_info": {
-        "id": self.chat_id,
-        "date-time": current_datetime,
-        "user_data": {
-          "name": user_data.name,
-          "birthday": user_data.birthday,
-          "sex": user_data.sex,
-          "race": user_data.race,
-          "details": user_data.details
-        }
-      },
-      "messages": []
+        "session_info": {
+            "id": self.chat_id,
+            "date-time": current_datetime,
+            "user_data": {
+                "name": user_data.name,
+                "birthday": user_data.birthday,
+                "sex": user_data.sex,
+                "race": user_data.race,
+                "details": user_data.details
+            }
+        },
+        "messages": []
     }
 
     with open(chat_filename, 'w') as json_file:
-      json.dump(chat_data, json_file, indent=4)
+        json.dump(chat_data, json_file, indent=4)
 
     logger.info(f"Chat initialized. Chat data saved to {chat_filename}")
 
