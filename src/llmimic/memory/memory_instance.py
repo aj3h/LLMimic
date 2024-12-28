@@ -13,7 +13,15 @@ class MemoryInstance:
     self.timer=ExecutionTimer()
     logger.info("A memory instance has been initialized.")
 
-  def check_for_memories(self, role, text):
+  def check_for_memories(self, role: str, text: str):
+    """This is a simple and horrible implementation currently.
+    None of this stuff is properly implemented in any way.
+    We're just working with data currently for future refactoring.
+
+    Args:
+        role (str): The role of the text being checked.
+        text (str): The text to be checked.
+    """    
     logger.info("Checking for memories.")
     self.timer.start()
     self.entity_recognizer=EntityRecognizer()
