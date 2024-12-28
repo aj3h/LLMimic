@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "version": "0.2.0",
     "configurations": [
@@ -9,4 +10,17 @@
             "console": "externalTerminal"
         }
     ]
+=======
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Run app.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/app.py",
+            "console": "externalTerminal"
+        }
+    ]
+>>>>>>> da0cf7f336b021832052223777cb9884eb9a5308
 }
